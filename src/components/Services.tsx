@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Stethoscope, Video, Syringe, FileText, Truck, Users, HeartPulse, Pill } from "lucide-react";
 
 export default function Services() {
@@ -89,10 +90,11 @@ export default function Services() {
           <div className="grid md:grid-cols-2">
             {/* Image Side */}
             <div className="relative h-full min-h-[300px]">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop" 
                 alt="Primary Care Services"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-medical-600/90 to-transparent"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-center text-white">

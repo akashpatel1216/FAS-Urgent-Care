@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Video, Clock, MapPin, Award, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Hero() {
@@ -53,10 +54,12 @@ export default function Hero() {
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img 
+            <Image 
               src={slide.image} 
               alt={slide.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority={index === 0}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/50"></div>
           </div>

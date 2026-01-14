@@ -53,7 +53,7 @@ export default function About() {
             <div className="mt-8 bg-gradient-to-br from-medical-50 to-medical-100 rounded-xl p-6 border-l-4 border-medical-600">
               <h3 className="text-xl font-bold text-navy-900 mb-2">Our Mission</h3>
               <p className="text-navy-700 italic font-medium">
-                "To provide the ultimate, compassionate care to all patients."
+                &ldquo;To provide the ultimate, compassionate care to all patients.&rdquo;
               </p>
             </div>
 

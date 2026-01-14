@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Gallery() {
   const images = [
     {
@@ -45,11 +47,12 @@ export default function Gallery() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image, index) => (
             <div key={index} className="card overflow-hidden group cursor-pointer">
-              <div className="relative overflow-hidden">
-                <img 
+              <div className="relative overflow-hidden h-64">
+                <Image 
                   src={image.src} 
                   alt={image.alt}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-6 text-white">

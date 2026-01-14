@@ -44,7 +44,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-28">
+    <section id="home" className="relative min-h-[100vh] md:min-h-screen flex items-center overflow-hidden pt-24 sm:pt-28">
       {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
@@ -60,38 +60,39 @@ export default function Hero() {
               fill
               className="object-cover"
               priority={index === 0}
+              sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/60"></div>
           </div>
         ))}
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Hidden on mobile */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 shadow-lg border border-white/30"
+        className="hidden md:block absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 shadow-lg border border-white/30"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 shadow-lg border border-white/30"
+        className="hidden md:block absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 shadow-lg border border-white/30"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`transition-all duration-300 rounded-full ${
               index === currentSlide 
-                ? "bg-white w-12 h-3" 
-                : "bg-white/50 hover:bg-white/75 w-3 h-3"
+                ? "bg-white w-8 sm:w-12 h-2 sm:h-3" 
+                : "bg-white/50 hover:bg-white/75 w-2 sm:w-3 h-2 sm:h-3"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -99,55 +100,55 @@ export default function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 bg-medical-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-              <Award size={18} />
-              Quality Healthcare Since 2017
+          <div className="space-y-4 sm:space-y-6 md:space-y-8">
+            <div className="inline-flex items-center gap-2 bg-medical-600/90 backdrop-blur-sm text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+              <Award size={16} className="sm:w-[18px] sm:h-[18px]" />
+              <span className="whitespace-nowrap">Quality Healthcare Since 2017</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               We Are Committed to{" "}
               <span className="text-medical-300">Affordable</span>{" "}
               <span className="text-coral-400">Ultimate Care</span>
             </h1>
 
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
               Quality Healthcare Services for Children & Adults. Serving Tampa Bay, Florida, Georgia, and Wisconsin with comprehensive in-person visits and telemedicine.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="#appointment" className="bg-medical-600 hover:bg-medical-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
-                <Calendar size={20} />
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <Link href="#appointment" className="bg-medical-600 hover:bg-medical-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base">
+                <Calendar size={18} className="sm:w-5 sm:h-5" />
                 Book Appointment
               </Link>
-              <Link href="#services" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
-                <Video size={20} />
+              <Link href="#services" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base">
+                <Video size={18} className="sm:w-5 sm:h-5" />
                 Our Services
               </Link>
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="text-4xl font-bold text-medical-300">7+</div>
-                <div className="text-sm text-gray-300 font-medium">Years Serving</div>
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6 md:pt-8">
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-medical-300">7+</div>
+                <div className="text-xs sm:text-sm text-gray-300 font-medium">Years Serving</div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="text-4xl font-bold text-coral-400">3</div>
-                <div className="text-sm text-gray-300 font-medium">States</div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-coral-400">3</div>
+                <div className="text-xs sm:text-sm text-gray-300 font-medium">States</div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="text-4xl font-bold text-primary-300">24/7</div>
-                <div className="text-sm text-gray-300 font-medium">Available</div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-300">24/7</div>
+                <div className="text-xs sm:text-sm text-gray-300 font-medium">Available</div>
               </div>
             </div>
           </div>
 
-          {/* Right Content - Info Cards */}
-          <div className="space-y-4">
+          {/* Right Content - Info Cards - Hidden on mobile, shown on tablet+ */}
+          <div className="hidden lg:block space-y-4">
             {/* Location Card */}
             <div className="card p-8 bg-white/95 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-4">

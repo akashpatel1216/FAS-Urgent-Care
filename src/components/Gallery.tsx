@@ -35,16 +35,16 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="section-title">Our Facility</h2>
           <p className="section-subtitle">
             Take a look at our modern healthcare facility and compassionate team
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {images.map((image, index) => (
             <div key={index} className="card overflow-hidden group cursor-pointer">
               <div className="relative overflow-hidden h-64">

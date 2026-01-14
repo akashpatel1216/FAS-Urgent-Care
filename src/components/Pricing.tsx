@@ -74,16 +74,16 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="pricing" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="section-title">Affordable Pricing Plans</h2>
           <p className="section-subtitle">
             Choose the payment option that works best for you
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {pricingPlans.map((plan, index) => {
             const Icon = plan.icon;
             return (

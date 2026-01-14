@@ -18,9 +18,9 @@ export default function Insurances() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <div className="inline-flex items-center justify-center mb-6">
             <div className="bg-medical-600 p-4 rounded-xl shadow-lg">
               <Shield className="text-white" size={40} />
